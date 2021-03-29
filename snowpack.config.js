@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     '@snowpack/plugin-vue',
+    '@snowpack/plugin-sass',
     '@snowpack/plugin-vue/plugin-tsx-jsx.js',
     '@snowpack/plugin-dotenv',
   ],

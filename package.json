@@ -6,6 +6,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@snowpack/plugin-sass": "^1.4.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {

@@ -1,51 +1,32 @@
 <template>
   <div class="App">
-    <header class="App-header">
-      <img src="/logo.svg" class="App-logo" alt="logo" />
-      <p>
-        Edit
-        <code>src/App.vue</code> and save to reload.
-      </p>
-      <p class="App-tsx">
-        <FooTsxVue />
-        <FooTsx />
-        <BarJsxVue />
-        <BarJsx />
-      </p>
-      <a class="App-link" href="https://vuejs.org" target="_blank" rel="noopener noreferrer">{{
-        state.message
-      }}</a>
-    </header>
+    <Login v-if="state === 'LOGIN'" />
+    <Room v-if="state === 'ROOM'" />
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, reactive} from 'vue';
-import FooTsxVue from './components/FooTsx.vue';
-import FooTsx from './components/Foo';
-import BarJsxVue from './components/BarJsx.vue';
-import BarJsx from './components/Bar';
+import { defineComponent, ref } from 'vue'
 
-interface State {
-  message: string;
-}
+import Login from './pages/Login.vue'
+import Room from './pages/Room.vue'
+
+type State = "LOGIN" | "ROOM"
 
 export default defineComponent({
   components: {
-    FooTsxVue,
-    FooTsx,
-    BarJsxVue,
-    BarJsx,
+    Login,
+    Room,
   },
+
   setup() {
-    const state = reactive({
-      message: 'Learn Vue',
-    });
+    const state = ref<State>("LOGIN")
+
     return {
-      state,
-    };
+      state
+    }
   },
-});
+})
 </script>
 
 <style>
